@@ -4,7 +4,7 @@ let etapas = [
         numeros: 5,
         candidatos: [
             {
-                numero: 38111,
+                numero: '38111',
                 nome: 'Manoel Gomes (blue pen)',
                 partido: 'CA (caneta azul)',
                 fotos: [
@@ -12,7 +12,7 @@ let etapas = [
                 ]
             },
             {
-                numero: 77222,
+                numero: '77222',
                 nome: 'Diogo Defante (crazy)',
                 partido: 'RB (rango brabo)',
                 fotos: [
@@ -27,7 +27,7 @@ let etapas = [
         numeros: 2,
         candidatos: [
             {
-                numero: 99,
+                numero: '99',
                 nome: 'Toguro (shape speaky)',
                 partido: 'MM (mansão maromba)',
                 fotos: [
@@ -35,7 +35,7 @@ let etapas = [
                 ]
             },
             {
-                numero: 84,
+                numero: '84',
                 nome: 'Boca de 09 (neymar friend)',
                 partido: 'TL (todo lacostado)',
                 fotos: [
