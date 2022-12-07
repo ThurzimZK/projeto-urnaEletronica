@@ -8,11 +8,15 @@ let numeros = c('.d-1-3')
 
 let etapaAtual = 0
 let numero = ''
+let votoBranco = false
+let votos = []
 
 function comecarEtapa(){
     let etapa = etapas[etapaAtual]
 
     let numeroHtml = ''
+    numero = ''
+    votoBranco = false
 
     for(let i=0; i < etapa.numeros; i++){
         if(i === 0){
@@ -45,8 +49,11 @@ function atualizaInterface(){
         for(let i in candidato.fotos){
             fotosHtml += `<div class="d-1-image"><img src="images/${candidato.fotos[i].url}">${candidato.fotos[i].legenda}</div>`
         }
-
         lateral.innerHTML = fotosHtml
+    } else{
+        seuVotoPara.style.display = 'block'
+        aviso.style.display = 'block'
+        descricao.innerHTML = `<div class="aviso--grande pisca">VOTO NULO</div>`
     }
 }
 
@@ -62,17 +69,49 @@ function clicou(n){
         } else{
             atualizaInterface()
         }
-        
     }
 }
 function branco() {
-    alert('branco')
+        numero = ''
+        votoBranco = true
+        seuVotoPara.style.display = 'block'
+        aviso.style.display = 'block'
+        numeros.innerHTML = ''
+        lateral.innerHTML = ''
+        descricao.innerHTML = `<div class="aviso--branco pisca">VOTO BRANCO</div>`
+       
 }
 function corrige(){
-    alert('corrige')
+    comecarEtapa()
 }
 function confirma() {
-    alert('confirma')
+    let etapa = etapas[etapaAtual]
+
+    let votoConfirmado = false
+
+    if(votoBranco === true){
+        votoConfirmado = true
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: 'branco'
+        })
+    } else if(numero.length === etapa.numeros){
+        votoConfirmado = true
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: numero
+        })
+    }
+
+    if(votoConfirmado){
+        etapaAtual++
+        if(etapas[etapaAtual] !== undefined){
+            comecarEtapa()
+        } else {
+            c('.tela').innerHTML = `<div class="aviso--gigante">FIM!</div>`
+            console.log(votos);
+        }
+    } 
 }
 
 comecarEtapa()

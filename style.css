@@ -128,3 +128,22 @@ body{
     border-top: 2px solid black;
     padding-left: 10px;
 }
+.aviso--grande{
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 100px;
+    margin-top: 25px;
+}
+.aviso--branco{
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+.aviso--gigante{
+    font-size: 70px;
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
